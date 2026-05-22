@@ -3,6 +3,7 @@ package com.marketplace.backend.controller;
 
 import com.marketplace.backend.dto.RegisterRequest;
 import com.marketplace.backend.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@RequestBody RegisterRequest request){
+    public String registerUser(@Valid @RequestBody RegisterRequest request){
         return  userService.registerUser(request);
     }
 
