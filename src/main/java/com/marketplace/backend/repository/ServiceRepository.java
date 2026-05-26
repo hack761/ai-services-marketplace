@@ -1,0 +1,15 @@
+package com.marketplace.backend.repository;
+
+import com.marketplace.backend.entity.AiService;
+import com.marketplace.backend.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface ServiceRepository extends JpaRepository<AiService,Long> {
+
+    List<AiService> findBySeller(User seller);
+
+}
