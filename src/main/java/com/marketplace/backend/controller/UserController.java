@@ -2,6 +2,7 @@ package com.marketplace.backend.controller;
 
 
 import com.marketplace.backend.dto.LoginRequest;
+import com.marketplace.backend.dto.LoginResponse;
 import com.marketplace.backend.dto.RegisterRequest;
 import com.marketplace.backend.service.UserService;
 import jakarta.validation.Valid;
@@ -26,7 +27,7 @@ public class UserController {
         return  userService.registerUser(request);
     }
     @PostMapping("/login")
-    public String login(@Valid @RequestBody LoginRequest request){
+    public LoginResponse login(@Valid @RequestBody LoginRequest request){
         return userService.loginUser(request);
     }
 
