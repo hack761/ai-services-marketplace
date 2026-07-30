@@ -8,8 +8,15 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ServiceRepository extends JpaRepository<AiService,Long> {
-
+public interface ServiceRepository extends JpaRepository<AiService, Long> {
     List<AiService> findBySeller(User seller);
 
+    // buyer - get all active services
+    List<AiService> findByStatus(String status);
+
+    // buyer - search by category
+    List<AiService> findByStatusAndCategory(String status, String category);
+
+    // buyer - search by keyword in title
+    List<AiService> findByStatusAndTitleContainingIgnoreCase(String status, String keyword);
 }

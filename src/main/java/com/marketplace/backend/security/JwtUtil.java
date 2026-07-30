@@ -10,20 +10,29 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private final String SECRET_KEY = "mysecretkeymysecretkeymysecretkey12"; // must be 32+ chars for HS256
+    private final String SECRET_KEY = "mysecretkeymysecretkeymysecretkey12";
 
     private SecretKey getSigningKey() {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
 
+    // GENERATE TOKEN
     public String generateToken(String email) {
         return Jwts.builder()
-                .subject(email)                          // ← new API (not setSubject)
-                .issuedAt(new Date())                    // ← new API (not setIssuedAt)
-                .expiration(
-                        new Date(System.currentTimeMillis() + 1000 * 60 * 60)
-                )                                        // ← new API (not setExpiration)
-                .signWith(getSigningKey())               // ← new API (no algorithm arg needed)
+                .subject(email)
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
+                .signWith(getSigningKey())
                 .compact();
+    }
+
+    // EXTRACT EMAIL FROM TOKEN
+    public String extractEmail(String token) {
+        return Jwts.parser()
+                .verifyWith(getSigningKey())
+                .build()
+                .parseSignedClaims(token)
+                .getPayload()
+                .getSubject();
     }
 }

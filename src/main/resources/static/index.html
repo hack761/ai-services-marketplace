@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#171534" />
+  <title>Nexora — AI services marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Nexora home"><span class="brand-mark">N</span>Nexora</a>
+    <nav><a href="#explore">Explore</a><a href="#how-it-works">How it works</a><a href="#seller" id="sellerLink">Sell</a></nav>
+    <div class="header-actions"><span class="api-status" id="apiStatus"><i></i>Connecting</span><button class="button button-quiet" id="loginButton">Log in</button><button class="button button-primary" id="signupButton">Get started <span>→</span></button></div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow">THE AI TALENT NETWORK</p><h1>Work that moves at <em>thought speed.</em></h1><p class="hero-description">Find specialist AI talent for the work that matters, from a single polished asset to an entire intelligent system.</p><div class="hero-actions"><a class="button button-primary button-large" href="#explore">Explore services <span>→</span></a><button class="button text-button" id="openSeller">Offer your expertise <span>↗</span></button></div><div class="proof"><div><strong>2,400+</strong><span>AI specialists</span></div><div><strong>4.9/5</strong><span>client satisfaction</span></div><div><strong>24 hrs</strong><span>avg. first response</span></div></div></div>
+      <div class="hero-art" aria-hidden="true"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="hero-card card-top"><span class="avatar violet">AI</span><div><b>Brand intelligence</b><small>Strategy · 2 days</small></div><strong>₹8,500</strong></div><div class="hero-card card-bottom"><span class="avatar coral">ML</span><div><b>Custom chatbot</b><small>Engineering · 5 days</small></div><strong>₹18,000</strong></div><div class="star">✦</div></div>
+    </section>
+
+    <section class="explore-section" id="explore"><div class="section-heading"><div><p class="eyebrow">CURATED EXPERTISE</p><h2>Find the right mind<br>for your next move.</h2></div><button class="filter-toggle" id="filterToggle">⌘ &nbsp; Filter services</button></div><div class="catalogue-toolbar"><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search services, skills, or outcomes" /></div><div class="category-pills" id="categoryPills"><button class="pill active" data-category="">All work</button><button class="pill" data-category="Design">Design</button><button class="pill" data-category="Development">Development</button><button class="pill" data-category="Marketing">Marketing</button><button class="pill" data-category="Writing">Writing</button></div></div><div class="service-grid" id="serviceGrid" aria-live="polite"><div class="loading-card">Loading available services…</div></div><div class="empty-state" id="emptyState" hidden><span>⌁</span><h3>No matching services yet</h3><p>Try another search or browse all available work.</p><button class="button button-quiet" id="resetFilters">Clear filters</button></div><div class="connection-notice" id="connectionNotice" hidden><div><b>Can’t reach the marketplace</b><p>Start the Spring Boot app, then try again. The page is set to use its own origin automatically.</p></div><button class="button button-primary" id="retryButton">Retry</button></div></section>
+
+    <section class="steps" id="how-it-works"><p class="eyebrow">A BETTER WAY TO HIRE</p><div class="steps-grid"><div><span>01</span><h3>Describe the outcome.</h3><p>Start with a service that fits, or simply tell an expert what you need.</p></div><div><span>02</span><h3>Collaborate clearly.</h3><p>Agree on scope, milestones and direction before the work begins.</p></div><div><span>03</span><h3>Move forward faster.</h3><p>Receive focused, ready-to-use work and keep your momentum.</p></div></div></section>
+
+    <section class="seller-cta" id="seller"><div><p class="eyebrow">FOR SPECIALISTS</p><h2>Your rare skills<br>deserve a better room.</h2></div><button class="button button-light button-large" id="sellerCta">Start selling <span>→</span></button></section>
+  </main>
+  <footer><a class="brand" href="#top"><span class="brand-mark">N</span>Nexora</a><span>Built for focused, remarkable work.</span><span>© 2026 Nexora</span></footer>
+
+  <div class="modal-backdrop" id="authModal" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="closeModal" aria-label="Close">×</button><p class="eyebrow" id="modalKicker">WELCOME BACK</p><h2 id="modalTitle">Log in to Nexora</h2><p class="modal-lead" id="modalLead">Pick up where your best work left off.</p><form id="authForm"><div class="field register-only" hidden><label for="name">Your name</label><input id="name" name="name" autocomplete="name" /></div><div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required /></div><div class="field"><label for="password">Password</label><input id="password" name="password" type="password" minlength="5" autocomplete="current-password" required /></div><div class="field"><label for="role">I want to</label><select id="role" name="role"><option value="BUYER">Hire an expert</option><option value="SELLER">Sell my expertise</option></select></div><p class="form-error" id="formError" hidden></p><button class="button button-primary button-full" type="submit" id="authSubmit">Log in <span>→</span></button></form><p class="modal-switch" id="modalSwitch">New to Nexora? <button id="switchMode">Create an account</button></p></section></div>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <script src="/app.js"></script>
+</body>
+</html>
